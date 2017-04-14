@@ -5,7 +5,7 @@ import org.junit.*;
 import java.util.*;
 
 public class WinCheckerTest {
-
+  WinChecker winChecker;
   Player player1;
   Player player2;
   Card card1;
@@ -13,9 +13,9 @@ public class WinCheckerTest {
   Card card3;
   Card card4;
 
-
   @Before
   public void before(){
+    winChecker = new WinChecker();
     player1 = new Player("Ian");
     player2 = new Player("Nicola");
     card1 = new Card(2, Suit.Hearts);
@@ -45,10 +45,7 @@ public class WinCheckerTest {
 
   @Test
   public void testWinningHand(){
-    
+    assertEquals("Player2", winChecker.winningHand(player1, player2));
   }
-
-
-  
 
 }
