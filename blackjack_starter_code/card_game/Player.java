@@ -4,7 +4,7 @@ import card_game.*;
 public class Player {
 
   private String name;
-  private Card[] hand = new Card[2];
+  private Card[] hand = new Card[3];
 
   public Player(String name){
     this.name = name;
@@ -27,8 +27,19 @@ public class Player {
     return this.hand[0].toString() + ", " + this.hand[1].toString();
   }
 
+  public boolean isHandBust(){
+    if(this.hand[0].getNumber() + this.hand[1].getNumber() > 21){
+      return true;
+    }
+    return false;
+  }
+
   public int sumHand(){
     return this.hand[0].getNumber() + this.hand[1].getNumber();
+  }
+
+  public void hit(Card card3){
+    this.hand[2] = card3;
   }
 
 }
