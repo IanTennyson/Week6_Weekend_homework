@@ -1,10 +1,11 @@
 package card_game;
 import card_game.*;
+import java.util.*;
 
 public class Player {
 
   private String name;
-  private Card[] hand = new Card[3];
+  private ArrayList<Card>hand = new ArrayList<Card>();
 
   public Player(String name){
     this.name = name;
@@ -15,31 +16,31 @@ public class Player {
   }
 
   public void setHand(Card card1, Card card2){
-    this.hand[0] = card1;
-    this.hand[1] = card2;
+    hand.add(card1);
+    hand.add(card2);
   }
 
-  public Card[] getHand(){
-    return this.hand;
+  public ArrayList getHand(){
+    return hand;
   }
 
   public String printHand(){
-    return this.hand[0].toString() + ", " + this.hand[1].toString();
+    return hand.toString();
   }
 
   public boolean isHandBust(){
-    if(this.hand[0].getNumber() + this.hand[1].getNumber() > 21){
+    if(this.hand.get(0).getNumber() + this.hand.get(1).getNumber() > 21){
       return true;
     }
     return false;
   }
 
   public int sumHand(){
-    return this.hand[0].getNumber() + this.hand[1].getNumber();
+    return this.hand.get(0).getNumber() + this.hand.get(1).getNumber();
   }
 
   public void hit(Card card3){
-    this.hand[2] = card3;
+    hand.add(card3);
   }
 
 }

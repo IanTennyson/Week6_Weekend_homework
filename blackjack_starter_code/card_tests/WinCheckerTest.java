@@ -15,6 +15,7 @@ public class WinCheckerTest {
   Card card5;
   Game game;
 
+
   @Before
   public void before(){
     game = new Game();
@@ -26,14 +27,11 @@ public class WinCheckerTest {
     card2 = new Card(5, Suit.Hearts);
     card3 = new Card(10, Suit.Clubs);
     card4 = new Card(13, Suit.Diamonds);
-    card5 = new Card(3, Suit.Spades);
+    card5 = new Card(6, Suit.Spades);
     game.addPlayer(player1);
     game.addPlayer(player2);
     player1.setHand(card1, card2);
     player2.setHand(card3, card4);
-    player1.hit(card5);
-    
-
   }
 
   @Test
@@ -44,8 +42,8 @@ public class WinCheckerTest {
 
   @Test
   public void playerHasCards(){
-    assertEquals("Two of Hearts, Five of Hearts", player1.printHand());
-    assertEquals("Ten of Clubs, King of Diamonds", player2.printHand());
+    assertEquals("Two of Hearts, Five of Hearts", player1.getHand());
+    assertEquals("Ten of Clubs, King of Diamonds", player2.getHand());
   }
 
   @Test
@@ -71,8 +69,8 @@ public class WinCheckerTest {
 
   @Test
   public void testPlayerHitACard(){
-    
-    assertEquals("Two of Hearts, Five of Hearts", player1.printHand());
+    player1.hit(card5);
+    assertEquals( "Two of Hearts, Five of Hearts, Six of Spades", player1.getHand());
   }
 
 }

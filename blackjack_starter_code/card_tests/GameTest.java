@@ -32,8 +32,8 @@ public class GameTest {
     game.addPlayer(player1);
     game.addPlayer(player2);
     game.deal();
-    assertNotNull(player1.getHand()[0]);
-    assertNotNull(player2.getHand()[1]);
+    assertNotNull(player1.getHand());
+    assertNotNull(player2.getHand());
   }
 
 }
